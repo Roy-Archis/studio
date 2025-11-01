@@ -18,23 +18,11 @@ import {
   Legend,
 } from 'recharts';
 import type { MgnregaDataMonth } from '@/lib/types';
-import { ChartConfig, ChartTooltipContent } from '@/components/ui/chart';
-import SimplifiedExplanation from './SimplifiedExplanation';
+import { ChartTooltipContent } from '@/components/ui/chart';
 
 interface FundsChartProps {
   data: MgnregaDataMonth[];
 }
-
-const chartConfig = {
-  totalFunds: {
-    label: 'Total Funds',
-    color: 'hsl(var(--muted-foreground))',
-  },
-  fundsUtilised: {
-    label: 'Funds Utilised',
-    color: 'hsl(var(--primary))',
-  },
-} satisfies ChartConfig;
 
 export default function FundsChart({ data }: FundsChartProps) {
   const chartData = data
@@ -50,7 +38,6 @@ export default function FundsChart({ data }: FundsChartProps) {
       <CardHeader>
         <div className="flex items-center gap-2">
             <CardTitle className="font-headline text-2xl">Fund Utilization (2024)</CardTitle>
-            <SimplifiedExplanation term="MGNREGA Fund Utilization" />
         </div>
         <CardDescription>
           Comparison of available funds vs. utilized funds each month.
@@ -74,7 +61,8 @@ export default function FundsChart({ data }: FundsChartProps) {
               <Line
                 type="monotone"
                 dataKey="totalFunds"
-                stroke="var(--color-totalFunds)"
+                name="Total Funds"
+                stroke="hsl(var(--muted-foreground))"
                 strokeWidth={2}
                 dot={false}
                 strokeDasharray="5 5"
@@ -82,7 +70,8 @@ export default function FundsChart({ data }: FundsChartProps) {
               <Line
                 type="monotone"
                 dataKey="fundsUtilised"
-                stroke="var(--color-fundsUtilised)"
+                name="Funds Utilised"
+                stroke="hsl(var(--primary))"
                 strokeWidth={2}
                 dot={true}
               />

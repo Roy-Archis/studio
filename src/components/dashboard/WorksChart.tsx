@@ -15,7 +15,6 @@ import {
   Tooltip
 } from 'recharts';
 import type { MgnregaDataMonth } from '@/lib/types';
-import SimplifiedExplanation from './SimplifiedExplanation';
 import { Building, Seedling } from 'lucide-react';
 
 interface WorksChartProps {
@@ -40,7 +39,6 @@ export default function WorksChart({ data }: WorksChartProps) {
       <CardHeader>
         <div className="flex items-center gap-2">
             <CardTitle className="font-headline text-2xl">Types of Works Completed</CardTitle>
-            <SimplifiedExplanation term="MGNREGA Works and Assets" />
         </div>
         <CardDescription>
           Breakdown of durable assets created across different categories (all time).

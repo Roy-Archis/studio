@@ -12,15 +12,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { getDistrictsForState, mgnregaData } from '@/lib/mgnrega-data';
-import { MapPin, ChevronRight } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { ChevronRight } from 'lucide-react';
 
 const SELECTED_DISTRICT_KEY = 'mgnrega_selected_district';
 const SELECTED_STATE_KEY = 'mgnrega_selected_state';
 
 export function DistrictSelector() {
   const router = useRouter();
-  const { toast } = useToast();
   const [selectedState, setSelectedState] = useState<string>('Bihar');
   const [districts, setDistricts] = useState<string[]>([]);
   const [selectedDistrict, setSelectedDistrict] = useState<string>('');
@@ -53,28 +51,6 @@ export function DistrictSelector() {
       router.push(`/dashboard/${selectedDistrict}`);
     }
   };
-
-  const handleDetectLocation = () => {
-    toast({
-        title: "Detecting Location...",
-        description: "Please allow location access to continue.",
-    });
-
-    // Simulate location detection
-    setTimeout(() => {
-        // In a real app, you would use navigator.geolocation and a reverse geocoding API
-        const simulatedDistrict = "Patna";
-        const simulatedState = "Bihar";
-
-        localStorage.setItem(SELECTED_DISTRICT_KEY, simulatedDistrict);
-        localStorage.setItem(SELECTED_STATE_KEY, simulatedState);
-        toast({
-            title: "Location Detected!",
-            description: `Taking you to the dashboard for ${simulatedDistrict}.`,
-        });
-        router.push(`/dashboard/${simulatedDistrict}`);
-    }, 1500);
-  }
 
   const handleLastVisited = () => {
     if (lastVisited) {
@@ -124,10 +100,6 @@ export function DistrictSelector() {
             </Button>
         )}
 
-        <Button variant="ghost" size="lg" className="w-full h-14 text-base" onClick={handleDetectLocation}>
-          <MapPin className="mr-2" />
-          Detect My District
-        </Button>
       </CardContent>
       <CardFooter>
         <Button

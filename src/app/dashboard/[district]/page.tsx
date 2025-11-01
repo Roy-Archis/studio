@@ -2,12 +2,9 @@ import { notFound } from 'next/navigation';
 import { getDataForDistrict } from '@/lib/mgnrega-data';
 import { Header } from '@/components/common/Header';
 import { PageWrapper } from '@/components/common/PageWrapper';
-import PerformanceScorecard from '@/components/dashboard/PerformanceScorecard';
 import EmploymentChart from '@/components/dashboard/EmploymentChart';
 import FundsChart from '@/components/dashboard/FundsChart';
 import WorksChart from '@/components/dashboard/WorksChart';
-import { Suspense } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
@@ -49,14 +46,6 @@ export default async function DistrictDashboard({
                     Change District
                 </Link>
             </Button>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-             <div className="lg:col-span-3">
-                <Suspense fallback={<Skeleton className="h-[250px] w-full" />}>
-                    <PerformanceScorecard districtName={districtName} stateName={stateName} performanceData={districtData} />
-                </Suspense>
-             </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

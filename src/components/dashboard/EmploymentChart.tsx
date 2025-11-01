@@ -17,19 +17,11 @@ import {
   Tooltip,
 } from 'recharts';
 import type { MgnregaDataMonth } from '@/lib/types';
-import { ChartConfig, ChartTooltipContent } from '@/components/ui/chart';
-import SimplifiedExplanation from './SimplifiedExplanation';
+import { ChartTooltipContent } from '@/components/ui/chart';
 
 interface EmploymentChartProps {
   data: MgnregaDataMonth[];
 }
-
-const chartConfig = {
-  personDaysGenerated: {
-    label: 'Person-Days Generated',
-    color: 'hsl(var(--primary))',
-  },
-} satisfies ChartConfig;
 
 export default function EmploymentChart({ data }: EmploymentChartProps) {
   const chartData = data
@@ -44,7 +36,6 @@ export default function EmploymentChart({ data }: EmploymentChartProps) {
       <CardHeader>
         <div className="flex items-center gap-2">
             <CardTitle className="font-headline text-2xl">Employment Generation (2024)</CardTitle>
-            <SimplifiedExplanation term="MGNREGA Person-Days" />
         </div>
         <CardDescription>
           Total person-days of work provided each month.
@@ -67,7 +58,7 @@ export default function EmploymentChart({ data }: EmploymentChartProps) {
               />
               <Bar
                 dataKey="personDaysGenerated"
-                fill="var(--color-personDaysGenerated)"
+                fill="hsl(var(--primary))"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
