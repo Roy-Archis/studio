@@ -10,6 +10,44 @@ export default function Home() {
       <Header />
       <PageWrapper>
         <main className="flex-grow flex flex-col items-center justify-center text-center py-12">
+          <div className="mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" className="w-32 h-auto rounded-md shadow-lg">
+              <rect width="900" height="200" fill="#FF9933"/>
+              <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+              <rect y="400" width="900" height="200" fill="#138808"/>
+              <g transform="translate(450,300)">
+                <circle r="65" fill="#000080"/>
+                <circle r="58" fill="#FFFFFF"/>
+                <circle r="18" fill="#000080"/>
+                <g id="spokes">
+                  <path d="M 0,-58 V -48 H 6 L 0,-58 Z" fill="#000080" transform="rotate(7.5)"/>
+                  <use href="#spokes" transform="rotate(15)"/>
+                  <use href="#spokes" transform="rotate(30)"/>
+                  <use href="#spokes" transform="rotate(45)"/>
+                  <use href="#spokes" transform="rotate(60)"/>
+                  <use href="#spokes" transform="rotate(75)"/>
+                  <use href="#spokes" transform="rotate(90)"/>
+                  <use href="#spokes" transform="rotate(105)"/>
+                  <use href="#spokes" transform="rotate(120)"/>
+                  <use href="#spokes" transform="rotate(135)"/>
+                  <use href="#spokes" transform="rotate(150)"/>
+                  <use href="#spokes" transform="rotate(165)"/>
+                  <use href="#spokes" transform="rotate(180)"/>
+                  <use href="#spokes" transform="rotate(195)"/>
+                  <use href="#spokes" transform="rotate(210)"/>
+                  <use href="#spokes" transform="rotate(225)"/>
+                  <use href="#spokes" transform="rotate(240)"/>
+                  <use href="#spokes" transform="rotate(255)"/>
+                  <use href="#spokes" transform="rotate(270)"/>
+                  <use href="#spokes" transform="rotate(285)"/>
+                  <use href="#spokes" transform="rotate(300)"/>
+                  <use href="#spokes" transform="rotate(315)"/>
+                  <use href="#spokes" transform="rotate(330)"/>
+                  <use href="#spokes" transform="rotate(345)"/>
+                </g>
+              </g>
+            </svg>
+          </div>
           <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tight mb-4">
             Our Voice, Our Rights
           </h1>
